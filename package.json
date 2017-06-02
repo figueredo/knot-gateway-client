@@ -1,8 +1,8 @@
 {
   "name": "knot-gateway-client",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "KNoT Team",
+  "homepage": "http://knot.cesar.org.br/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -44,7 +44,7 @@
     "@ionic/cli-plugin-ionic-angular": "^1.3.0",
     "typescript": "2.3.3"
   },
-  "description": "An Ionic project",
+  "description": "The application to configure your KNoT Gateway",
   "cordova": {
     "plugins": {
       "cordova-plugin-console": {},
