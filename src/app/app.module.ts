@@ -4,22 +4,25 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { App } from './app.component';
+import { SignInPage } from '../pages/signin/signin';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    App,
+    SignInPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(App, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    App,
+    SignInPage
   ],
   providers: [
     StatusBar,
