@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { IonicPage, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, Events, AlertController, LoadingController, Loading } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
 
@@ -13,7 +13,7 @@ export class SignInPage {
   private loading: Loading;
   private signInForm: FormGroup;
 
-  constructor(private loadingCtrl: LoadingController, private alertCtrl: AlertController, private formBuilder: FormBuilder, private auth: AuthService) {
+  constructor(private events: Events, private loadingCtrl: LoadingController, private alertCtrl: AlertController, private formBuilder: FormBuilder, private auth: AuthService) {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -28,7 +28,7 @@ export class SignInPage {
   }
 
   private onSignInSuccess(): void {
-    this.loading.dismiss();
+    this.events.publish('auth:signin');
   }
 
   private onSignInFailure(): void {
