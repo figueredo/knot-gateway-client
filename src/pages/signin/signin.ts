@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 
+import { MainPage } from '../main/main';
 import { AuthService } from '../../providers/auth-service/auth-service';
 
 @Component({
@@ -27,7 +28,7 @@ export class SignInPage {
   }
 
   private onSignInSuccess(): void {
-    this.loading.dismiss();
+    this.navCtrl.setRoot(MainPage);
   }
 
   private onSignInFailure(): void {
