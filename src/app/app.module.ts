@@ -6,12 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { App } from './app.component';
 import { SignInPage } from '../pages/signin/signin';
 import { MainPage } from '../pages/main/main';
 import { DevicesPage } from '../pages/devices/devices';
 import { AuthService } from '../providers/auth-service/auth-service';
+import { DevicesService } from '../providers/devices-service/devices-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC7y1GwD18kgl6KSNWwTlNnM2sMnVLPqbg",
@@ -49,7 +51,9 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthService
+    AngularFireDatabase,
+    AuthService,
+    DevicesService
   ]
 })
 export class AppModule {}
