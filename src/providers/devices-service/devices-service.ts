@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-
 @Injectable()
 export class DevicesService {
 
@@ -24,6 +23,10 @@ export class DevicesService {
     return this.devices
       .map(devices => devices.
         filter(device => !device.allowed));
+  }
+
+  setDeviceAllowed(device, allowed): void {
+    this.devices.update(device.$key, { allowed: allowed });
   }
 
 }
