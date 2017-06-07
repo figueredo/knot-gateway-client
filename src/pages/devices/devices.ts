@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -16,7 +16,7 @@ export class DevicesPage implements OnInit {
   notAllowedDevices: Observable<any[]>;
   hasAllowedDevices: Observable<boolean>;
 
-  constructor(private devicesService: DevicesService) {
+  constructor(private devicesService: DevicesService, private alertCtrl: AlertController) {
   }
 
   ngOnInit() {
@@ -24,6 +24,38 @@ export class DevicesPage implements OnInit {
     this.notAllowedDevices = this.devicesService.notAllowedDevices;
     this.hasAllowedDevices = this.allowedDevices
       .map(devices => devices.length > 0);
+  }
+
+  allow(device) {
+    this.devicesService.setDeviceAllowed(device, true);
+  }
+
+  disallow(device) {
+    this.confirmDisallow(device)
+      .then((confirmed) => {
+        if (confirmed) {
+          this.devicesService.setDeviceAllowed(device, false);
+        }
+      });
+  }
+
+  confirmDisallow(device) {
+    return new Promise<boolean>((resolve, reject) => {
+      const confirm = this.alertCtrl.create({
+        message: 'Do you wan\'t to forget ' + device.name + '?',
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: () => resolve(false)
+          },
+          {
+            text: 'OK',
+            handler: () => resolve(true)
+          }
+        ]
+      });
+      confirm.present();
+    });
   }
 
 }

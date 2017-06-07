@@ -13,12 +13,12 @@
             My Devices
         </ion-list-header>
 
-        <ion-item *ngFor="let device of allowedDevices | async">
+        <button ion-item detail-none (click)="disallow(device)" *ngFor="let device of allowedDevices | async">
             {{ device.name }}
             <ion-note item-end>
                 {{ device.online ? 'Online' : 'Offline' }}
             </ion-note>
-        </ion-item>
+        </button>
     </ion-list>
 
     <ion-list>
@@ -26,8 +26,8 @@
             {{ (hasAllowedDevices | async) ? 'Other Devices' : 'Devices'}}
             <ion-spinner item-end></ion-spinner>
         </ion-list-header>
-        <ion-item *ngFor="let device of notAllowedDevices | async">
+        <button ion-item detail-none (click)="allow(device)" *ngFor="let device of notAllowedDevices | async">
             {{ device.name }}
-        </ion-item>
+        </button>
     </ion-list>
 </ion-content>
