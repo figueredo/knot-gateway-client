@@ -3,6 +3,7 @@ import { Platform, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { GatewaysPage } from '../pages/gateways/gateways';
 import { SignInPage } from '../pages/signin/signin';
 import { DevicesPage } from '../pages/devices/devices';
 import { AuthService } from '../providers/auth-service/auth-service';
@@ -19,14 +20,23 @@ export class App implements OnInit {
 
   ngOnInit(): void {
     this.platform.ready().then(() => {
+      if (this.platform.is('cordova')) {
+        this.openGatewaysPage();
+      } else {
+        this.openSignInPage();
+      }
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      this.openSignInPage();
     });
 
     this.events.subscribe('auth:signin', () => this.openDevicesPage());
     this.events.subscribe('auth:signout', () => this.openSignInPage());
+  }
+
+  openGatewaysPage(): void {
+    this.menuCtrl.enable(false);
+    this.openPage(GatewaysPage);
   }
 
   openSignInPage(): void {

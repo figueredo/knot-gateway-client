@@ -12,6 +12,7 @@ import { App } from './app.component';
 
 import { SignInPageModule } from '../pages/signin/signin.module';
 import { DevicesPageModule } from '../pages/devices/devices.module';
+import { GatewaysPageModule } from '../pages/gateways/gateways.module';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { DevicesService } from '../providers/devices-service/devices-service';
 
@@ -34,6 +35,7 @@ export const firebaseConfig = {
       scrollAssist: false,
       autoFocusAssist: false
     }),
+    GatewaysPageModule,
     SignInPageModule,
     DevicesPageModule,
     AngularFireModule.initializeApp(firebaseConfig)
