@@ -56,6 +56,10 @@
   version "3.10.2"
   resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-3.10.2.tgz#5b6286c4bb9d8f575b94d000ee8d796fd4f2cde9"
 
+"@ionic-native/zeroconf@^3.12.1":
+  version "3.12.1"
+  resolved "https://registry.yarnpkg.com/@ionic-native/zeroconf/-/zeroconf-3.12.1.tgz#83f782c6cb7caf6294503dc17c45f9f6695b04e6"
+
 "@ionic/app-scripts@1.3.7":
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/@ionic/app-scripts/-/app-scripts-1.3.7.tgz#4f63beb0ea75f63402a84e285a7e85dffba2eb36"
@@ -1149,6 +1153,10 @@ cordova-ios@^4.4.0:
     xcode "^0.9.0"
     xml-escape "^1.1.0"
 
+cordova-plugin-add-swift-support@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-add-swift-support/-/cordova-plugin-add-swift-support-1.6.2.tgz#48c4dde50d211121b4034e7d603b907a102ffedf"
+
 cordova-plugin-console@^1.0.5:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/cordova-plugin-console/-/cordova-plugin-console-1.0.7.tgz#89b7a92ed1c335888dfc00d902dc417201cf3b0b"
@@ -1168,6 +1176,10 @@ cordova-plugin-statusbar@^2.2.2:
 cordova-plugin-whitelist@^1.3.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.2.tgz#5b6335feb9f5301f3c013b9096cb8885bdbd5076"
+
+cordova-plugin-zeroconf@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-zeroconf/-/cordova-plugin-zeroconf-1.2.4.tgz#03631f32da507de8dcddb03c6b7b234bd2a82b5a"
 
 cordova-registry-mapper@^1.1.8:
   version "1.1.15"
@@ -2570,6 +2582,12 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+mdns-txt@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/mdns-txt/-/mdns-txt-1.0.0.tgz#cb638e750f97507896d27af4d687071edc61a33d"
+  dependencies:
+    buffer-indexof "^1.0.0"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -2694,6 +2712,12 @@ ms@^2.0.0:
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
+
+multicast-dns@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/multicast-dns/-/multicast-dns-4.0.1.tgz#abf022fc866727055a9e0c2bc98097f5ebad97a2"
+  dependencies:
+    thunky "^0.1.0"
 
 multicast-dns@^6.0.1:
   version "6.1.1"
@@ -4299,6 +4323,14 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zeroconf@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/zeroconf/-/zeroconf-0.1.4.tgz#8c8216e600de6e8ce05551cbe31561a58f384a62"
+  dependencies:
+    mdns-txt "^1.0.0"
+    multicast-dns "^4.0.0"
+    multicast-dns-service-types "^1.1.0"
 
 zip-stream@^1.1.0:
   version "1.1.1"
