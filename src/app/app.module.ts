@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Zeroconf } from '@ionic-native/zeroconf';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -15,6 +16,7 @@ import { DevicesPageModule } from '../pages/devices/devices.module';
 import { GatewaysPageModule } from '../pages/gateways/gateways.module';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { DevicesService } from '../providers/devices-service/devices-service';
+import { GatewaysService } from '../providers/gateways-service/gateways-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC7y1GwD18kgl6KSNWwTlNnM2sMnVLPqbg",
@@ -47,11 +49,13 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Zeroconf,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
     AngularFireDatabase,
     AuthService,
-    DevicesService
+    DevicesService,
+    GatewaysService
   ]
 })
 export class AppModule {}
