@@ -10,7 +10,7 @@
       {{ (hasGateways | async) ? 'Available Gateways' : 'Searching...'}}
       <ion-spinner item-end></ion-spinner>
     </ion-list-header>
-    <button ion-item *ngFor="let gateway of gateways | async">
+    <button ion-item (click)="connect(gateway)" *ngFor="let gateway of gateways | async">
       {{ gateway.name }}
     </button>
   </ion-list>
