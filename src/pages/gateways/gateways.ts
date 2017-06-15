@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 
+import { SignInPage } from '../signin/signin';
 import { GatewaysService, Gateway } from '../../providers/gateways-service/gateways-service';
 
 @Component({
@@ -12,10 +14,14 @@ export class GatewaysPage implements OnInit, OnDestroy {
   gateways: Observable<Gateway[]>;
   hasGateways: Observable<boolean>;
 
-  constructor(private gatewaysService: GatewaysService) {
+  constructor(private navCtrl: NavController, private gatewaysService: GatewaysService) {
     this.gateways = this.gatewaysService.gateways;
     this.hasGateways = this.gateways
       .map(gateways => gateways.length > 0);
+  }
+
+  connect(gateway: Gateway): void {
+    this.navCtrl.setRoot(SignInPage);
   }
 
   ngOnInit() {
