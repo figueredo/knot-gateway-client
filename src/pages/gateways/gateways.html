@@ -1,10 +1,17 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Gateways</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-list-header>
+      {{ (hasGateways | async) ? 'Available Gateways' : 'Searching...'}}
+      <ion-spinner item-end></ion-spinner>
+    </ion-list-header>
+    <button ion-item *ngFor="let gateway of gateways | async">
+      {{ gateway.name }}
+    </button>
+  </ion-list>
 </ion-content>
