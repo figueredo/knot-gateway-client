@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Platform, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,6 +12,7 @@ import { AuthService } from '../providers/auth-service/auth-service';
   templateUrl: 'app.html'
 })
 export class App implements OnInit {
+  @ViewChild('content') nav: any;
   private rootPage: any;
 
   constructor(private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen,
@@ -31,31 +32,41 @@ export class App implements OnInit {
     });
 
     this.events.subscribe('auth:signin', () => this.openDevicesPage());
-    this.events.subscribe('auth:signout', () => this.openSignInPage());
+    this.events.subscribe('auth:signout', () => this.closeDevicesPage());
   }
 
   openGatewaysPage(): void {
-    this.menuCtrl.enable(false);
-    this.openPage(GatewaysPage);
+    this.menuCtrl.close()
+      .then(() => {
+        this.menuCtrl.enable(false);
+        this.rootPage = GatewaysPage;
+      });
   }
 
   openSignInPage(): void {
-    this.menuCtrl.enable(false);
-    this.openPage(SignInPage);
+    this.menuCtrl.close()
+      .then(() => {
+        this.menuCtrl.enable(false);
+        this.rootPage = SignInPage;
+      });
   }
 
   openDevicesPage(): void {
     this.menuCtrl.enable(true);
-    this.openPage(DevicesPage);
+    this.nav.push(DevicesPage);
+  }
+
+  closeDevicesPage(): void {
+    this.menuCtrl.close()
+      .then(() => {
+        this.menuCtrl.enable(false);
+        this.nav.pop();
+      });
   }
 
   signOut(): void {
     this.authService.signOut()
       .then(() => this.events.publish('auth:signout'));
-  }
-
-  private openPage(page): void {
-    this.rootPage = page;
   }
 
 }

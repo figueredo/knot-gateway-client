@@ -21,7 +21,7 @@ export class GatewaysPage implements OnInit, OnDestroy {
   }
 
   connect(gateway: Gateway): void {
-    this.navCtrl.setRoot(SignInPage);
+    this.navCtrl.push(SignInPage);
   }
 
   ngOnInit() {
