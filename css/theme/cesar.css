@@ -1,0 +1,18 @@
+div.slide-background::after {
+    content: '';
+    display: block;
+    background-image: url('../../imgs/cesar_logo.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 60px;
+}
+
+.reveal section img {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
