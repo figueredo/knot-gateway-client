@@ -1,0 +1,14 @@
+{
+  "name": "knot-gateway-client-presentation",
+  "version": "1.0.0",
+  "description": "Presentation about this rewrite of the KNoT Gateway client",
+  "scripts": {
+    "start": "http-server ."
+  },
+  "repository": "git@github.com:figueredo/knot-gateway-client.git",
+  "author": "Thiago Cardoso <thiago.figueredo@cesar.org.br>",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
