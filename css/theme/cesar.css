@@ -16,3 +16,38 @@ div.slide-background::after {
     border: none;
     box-shadow: none;
 }
+
+.stack {
+    position: relative;
+    display: block;
+}
+
+.stack > ul {
+    list-style: none;
+}
+
+.stack > ul > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stack > ul > li:nth-child(2) {
+    top: 10px;
+    left: 10px;
+}
+
+.stack > ul > li:nth-child(3) {
+    top: 20px;
+    left: 20px;
+}
+
+.stack > ul > li:nth-child(4) {
+    top: 30px;
+    left: 30px;
+}
+
+.stack > ul > li:nth-child(5) {
+    top: 40px;
+    left: 40px;
+}
