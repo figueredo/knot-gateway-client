@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/pres.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/theme/github.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -184,6 +184,37 @@
 						<aside class="notes" data-markdown>
 							- No native UI
 							- Native components through Cordova
+						</aside>
+					</section>
+
+					<section>
+						<h3>Getting started</h3>
+						<pre><code class="bash" data-trim contenteditable>
+						$ npm install -g cordova ionic
+						$ ionic start MyApp blank
+						$ cd MyApp
+						$ ionic serve
+						</code></pre>
+
+						<aside class="notes" data-markdown>
+							- Useful options to start: --yarn and --skip-link
+							- I tried using yarn to install globally but it wasn't working properly with VS Code
+						</aside>
+					</section>
+
+					<section>
+						<h3>Alternative: Ionic Creator</h3>
+						<div class="stack">
+							<ul>
+								<li><img src="imgs/creator-1.png" /></li>
+								<li class="fragment"><img src="imgs/creator-2.png" /></li>
+								<li class="fragment"><img src="imgs/creator-3.png" /></li>
+							</ul>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Has limitations
+							- Not 100% free
 						</aside>
 					</section>
 				</section>
