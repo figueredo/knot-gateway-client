@@ -51,3 +51,18 @@ div.slide-background::after {
     top: 40px;
     left: 40px;
 }
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-cell {
+    flex-grow: 1;
+}
+
+.grid-cell-full {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+}
