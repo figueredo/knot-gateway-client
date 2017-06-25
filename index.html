@@ -408,6 +408,112 @@
 					</section>
 				</section>
 
+				<!-- Sign in page -->
+				<section data-transition="slide">
+					<section>
+						<h4>How is a form view written?</h4>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_generate.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Generate a page:</p>
+								<pre><code class="bash" data-trim>
+								$ ionic generate page SignIn
+								</code></pre>
+								<p>It doesn't include the module in any component, must be made manually.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add the inputs and labels:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								  &lt;<mark>ion-label</mark> floating&gt;E-mail&lt;/ion-label&gt;
+								  &lt;<mark>ion-input</mark> type="email"&gt;&lt;/ion-input&gt;
+								...
+								</code></pre>
+								<p><a href="http://ionicframework.com/docs/components/#inputs" target="_blank">ion-input</a> replaces HTML input.</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							The `floating` directive makes the label float when data is being entered. Other possible directives: fixed, stacked.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add the "layout manager":</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								<mark>&lt;ion-list&gt;</mark>
+								  <mark>&lt;ion-item&gt;</mark>
+								    &lt;ion-label floating&gt;E-mail&lt;/ion-label&gt;
+								    &lt;ion-input type="email"&gt;&lt;/ion-input&gt;
+								  &lt;/ion-item&gt;
+								...
+								</code></pre>
+								<p>A list (<a href="http://ionicframework.com/docs/api/components/list/List/" target="_blank">ion-list</a>) is commonly used to layout forms.</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							The `ion-item` will bind the `ion-label` to the `ion-input`.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add the button:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;/ion-list&gt;
+
+								&lt;div padding&gt;
+								  &lt;button <mark>ion-button</mark> block&gt;Sign In&lt;/button&gt;
+								&lt;/div&gt;
+								...
+								</code></pre>
+								<p><a href="http://ionicframework.com/docs/components/#buttons" target="_blank">ion-button</a> is a directive rather than an element.</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							The `block` directive makes it fill the width. Other possible directives: `outline`, `clear`, `round`.
+						</aside>
+					</section>
+
+					<section>
+						<img src="imgs/signin_lab.png" />
+
+						<aside class="notes" data-markdown>
+							To open the Ionic Lab: `$ ionic lab`
+						</aside>
+					</section>
+				</section>
+
 			</div>
 
 		</div>
