@@ -57,12 +57,22 @@ div.slide-background::after {
     flex-wrap: wrap;
 }
 
+.grid-no-wrap {
+    display: flex;
+    flex-wrap: no-wrap;
+}
+
 .grid-cell {
     flex-grow: 1;
 }
 
 .grid-cell-no-grow {
     flex-grow: 0;
+}
+
+.grid-cell-no-grow-shrink {
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .grid-cell-full {

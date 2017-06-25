@@ -286,6 +286,59 @@
 							- e.g.: change colors
 						</aside>
 					</section>
+
+					<section>
+						<h3>Ionic bootstrap</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/bootstrap_app.png" width="246px" />
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<pre><code class="html" data-trim contenteditable>
+								<ion-nav [root]="rootPage"></ion-nav>
+								</code></pre>
+								<p>The <a href="http://ionicframework.com/docs/api/components/nav/Nav" target="_blank">ion-nav</a> is the basic <a href="http://ionicframework.com/docs/components/#navigation" target="_blank">navigation</a> component.</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- ion-nav is a stack based navigation component
+						</aside>
+					</section>
+
+					<section>
+						<h3>Ionic bootstrap</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/bootstrap_app.png" width="246px" />
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<pre><code class="typescript" data-trim data-noescape contenteditable>
+								import ...
+
+								<mark>@Component({</mark>
+								  templateUrl: 'app.html'
+								})
+								export class MyApp {
+								  <mark>rootPage:any = HomePage;</mark>
+
+								  constructor(platform: Platform, ...) {
+								    <mark>platform.ready().then(() => {</mark>
+								        statusBar.styleDefault();
+								        splashScreen.hide();
+								      });
+								    }
+								}
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- It is an Angular component
+							- rootPage is referenced in the template
+							- Cordova plugins to deal with the platform
+						</aside>
+					</section>
 				</section>
 
 			</div>
