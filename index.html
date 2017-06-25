@@ -586,6 +586,55 @@
 							`signInForm` is the value bound to `formGroup` directive in template.
 						</aside>
 					</section>
+
+					<section>
+						<h3>Auth service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/auth_service_generate.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Generate a service:</p>
+								<pre><code class="bash" data-trim>
+								$ ionic generate provider AuthService
+								</code></pre>
+								<p>It adds the provider to application module providers' list</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							Generator adds the provider suffix, manually removed in the example.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Auth service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/auth_service_generate.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Create sign in/out methods:</p>
+								<pre><code class="typescript" data-trim data-noescape>
+								<mark>@Injectable()</mark>
+								export class AuthService {
+								  ...
+								  signIn(credentials): <mark>firebase</mark>.Promise&lt;any&gt; {
+								    return this.afAuth.auth
+								      .signInWithEmailAndPassword(
+								        credentials.email,
+								        credentials.password);
+								  }
+
+								  signOut(): ...
+								  </code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							Firebase was used as a replacement of the real back-end, only for evaluation purposes.
+						</aside>
+					</section>
 				</section>
 
 			</div>
