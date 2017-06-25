@@ -635,6 +635,31 @@
 							Firebase was used as a replacement of the real back-end, only for evaluation purposes.
 						</aside>
 					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Connect with auth service:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								...
+								  constructor(<mark>private auth: AuthService</mark>, ...
+								  }
+								...
+								  signIn() {
+								    <mark>this.auth.signIn(credentials)</mark>
+								      .then(() => this.onSignInSuccess(),
+								            () => this.onSignInFailure());
+								  }
+								...
+								</code></pre>
+							</div>
+						</div>
+					</section>
 				</section>
 
 			</div>
