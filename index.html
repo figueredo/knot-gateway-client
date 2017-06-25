@@ -512,6 +512,80 @@
 							To open the Ionic Lab: `$ ionic lab`
 						</aside>
 					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Make it a form:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								<mark>&lt;form [formGroup]="signInForm"
+								    (ngSubmit)="signIn(signInForm.value)"&gt;</mark>
+								...
+								    &lt;ion-label floating&gt;E-mail&lt;/ion-label&gt;
+								    &lt;ion-input ... <mark>formControlName="email"</mark>&gt;
+								...
+								  &lt;button ion-button block <mark>type="submit"</mark>&gt;
+								...
+								</code></pre>
+								<p>Regular Angular <a href="https://angular.io/guide/forms" target="_blank">form</a>.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Disable button when invalid:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;button ion-button block type="submit"
+								  <mark>[disabled]="!signInForm.valid"</mark>&gt;
+								  Sign In
+								&lt;/button&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Create form and its validation:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								  private signInForm: <mark>FormGroup</mark>;
+
+								  constructor(private fb: <mark>FormBuilder</mark>) {
+								    this.signInForm = this.fb
+								      .group({
+								        email: ['', [<mark>Validators</mark>.required,
+								                     Validators.email]],
+								        password: ['', Validators.required]
+								    });
+								  }
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							`signInForm` is the value bound to `formGroup` directive in template.
+						</aside>
+					</section>
 				</section>
 
 			</div>
