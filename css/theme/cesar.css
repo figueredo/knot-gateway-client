@@ -61,6 +61,10 @@ div.slide-background::after {
     flex-grow: 1;
 }
 
+.grid-cell-no-grow {
+    flex-grow: 0;
+}
+
 .grid-cell-full {
     flex-grow: 0;
     flex-shrink: 0;
