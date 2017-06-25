@@ -660,6 +660,61 @@
 							</div>
 						</div>
 					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Act on success (<a href="http://ionicframework.com/docs/api/util/Events/" target="_blank">events</a>):</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								...
+								  constructor(<mark>private events: Events</mark>, ...
+								  }
+								...
+								  onSignInSuccess() {
+								    <mark>this.events.publish('auth::success');</mark>
+								  }
+								...
+								</code></pre>
+								<p>or...</p>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							Another component must be listening to the event and act on it.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Act on success (<a href="http://ionicframework.com/docs/api/navigation/NavController/" target="_blank">navigate</a>):</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								...
+								  constructor(<mark>private navCtrl: NavController</mark>, ...
+								  }
+								...
+								  onSignInSuccess() {
+								    <mark>this.navCtrl.push(DevicesPage);</mark>
+								  }
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							DevicesPage is the class that implements the next page.
+						</aside>
+					</section>
 				</section>
 
 			</div>
