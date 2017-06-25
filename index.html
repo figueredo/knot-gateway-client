@@ -715,6 +715,72 @@
 							DevicesPage is the class that implements the next page.
 						</aside>
 					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Create a <a href="http://ionicframework.com/docs/components/#loading" target="_blank">loading</a> dialog:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								...
+								  constructor(<mark>private ldCtrl: LoadingController</mark>, ...
+								  }
+								...
+								  showLoading() {
+								    <marl>this.loading = this.ldCtrl.create({</mark>
+								      content: 'Signing in...',
+								      dismissOnPageChange: true
+								    });
+								    this.loading.present();
+								  }
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							Dialog is shown while authenticating and dismissed with `this.loading.dismiss()` in case of error.
+						</aside>
+					</section>
+
+					<section>
+						<img src="imgs/signin_lab_loading.png" />
+					</section>
+
+					<section>
+						<h3>Sign in page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/signin_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Create an <a href="http://ionicframework.com/docs/components/#alert" target="_blank">error</a> dialog:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								export class SignInPage {
+								...
+								  constructor(<mark>private alertCtrl: AlertController</mark>, ...
+								  }
+								...
+								  showError() {
+								    <mark>const alert = this.alertCtrl.create({</mark>
+								      message: 'Invalid credentials. Try again.',
+								      buttons: ['OK']
+								    });
+								    alert.present(prompt);
+								  }
+								...
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<img src="imgs/signin_lab_error.png" />
+					</section>
 				</section>
 
 			</div>
