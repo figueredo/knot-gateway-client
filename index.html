@@ -977,6 +977,40 @@
 							</div>
 						</div>
 					</section>
+
+					<section>
+						<h3>Devices service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_service.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Get data from the back-end:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								...
+								@Injectable()
+								export class DevicesService {
+								  private devices: <mark>FirebaseListObservable</mark>&lt;any[]&gt;;
+								  ...
+								  <mark>ngOnInit()</mark> {
+								    this.devices = db.list('/devices');
+								  }
+
+								  get allowedDevices(): <mark>Observable</mark>&lt;any[]&gt;
+								  get notAllowedDevices(): Observable&lt;any[]&gt;
+								  setDeviceAllowed(device, allowed): void
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- `db` is a `AngularFireDatabase`
+							- `db.list` works a WebSocket connection
+							- `ngOnInit` is the Angular initialization callback
+							- Getters transform `this.devices` into `Observable`
+						</aside>
+					</section>
 				</section>
 
 			</div>
