@@ -1011,6 +1011,62 @@
 							- Getters transform `this.devices` into `Observable`
 						</aside>
 					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Connect with the service (<a href="https://angular.io/api/core/OnInit" target="_blank">ngOnInit</a>):</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								...
+								allowedDevices: <mark>Observable</mark>&lt;any[]&gt;;
+								...
+								constructor(devService: DevicesService ...
+								<mark>ngOnInit()</mark> {
+								  <mark>this.allowedDevices = this.devService
+								    .allowedDevices</mark>;
+								  ...
+								  this.hasAllowedDevices =
+								    <mark>this.allowedDevices
+								      .map(d => d.length > 0)</mark>;
+								}
+								...
+								</code></pre>
+								<p>or...</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>using <a href="http://blog.ionic.io/navigating-lifecycle-events" target="_blank">Ionic's page lifecycle hooks</a>:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								...
+								allowedDevices: Observable&lt;any[]&gt;;
+								...
+								constructor(devService: DevicesService ...
+								<mark>ionViewDidLoad()</mark> {
+								  this.allowedDevices = this.devService
+								    .allowedDevices;
+								  ...
+								}
+								...
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<img src="imgs/devices_lab_fulllist.png" />
+					</section>
 				</section>
 
 			</div>
