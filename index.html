@@ -1202,6 +1202,60 @@
 							- `NgZone` doesn't appear in the docs, but here: [https://github.com/ionic-team/ionic-native](https://github.com/ionic-team/ionic-native)
 						</aside>
 					</section>
+
+					<section>
+						<h3>Running on device</h3>
+						<div class="align-left">
+							<p>To run on the target device:</p>
+							<ol>
+								<li><a href="https://cordova.apache.org/docs/en/3.0.0/guide/platforms/index.html" target="_blank">Setup</a> Cordova for the target environment.</li>
+								<li>Run:</li>
+							</ol>
+						</div>
+						<pre><code class="bash" data-trim>
+						$ ionic cordova run &lt;ios|android&gt;
+						</code></pre>
+
+						<div class="align-left">
+							<p>Development related options:</p>
+							<ul>
+								<li>-l: enables live reloading</li>
+								<li>-c: prints console logs to terminal</li>
+								<li>-s: prints dev server logs to terminal</li>
+							</ul>
+						</div>
+
+						<aside class="notes" data-markdown>
+							`ionic cordova` is a wrapper to `cordova`.
+							To target iOS a few tweaks might be required. I had problems with:
+							- XCode 8.3 (needed to symlink one of its dirs)
+							- A missing Python package
+						</aside>
+					</section>
+
+					<section>
+						<h3>Debugging on device</h3>
+						<div class="align-left">
+							<p>With <a href="https://github.com/Microsoft/vscode-cordova" target="_blank">Cordova Extension for VSCode</a> it is possible to debug the applicaton.</p>
+							<p>This is recommended in the <a href="http://blog.ionic.io/cordova-extension-for-vscode/" target="_blank">Ionic blog</a>.</p>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Couldn't debug on iOS
+							- Required to setup `build.json` to run the application on iOS
+							- Everything worked fine on Android.
+						</aside>
+					</section>
+
+					<section>
+						<div class="stack">
+							<ul>
+								<li><img src="imgs/debug-0.png" /></li>
+								<li class="fragment"><img src="imgs/debug-1.png" /></li>
+								<li class="fragment"><img src="imgs/debug-2.png" /></li>
+							</ul>
+						</div>
+					</section>
 				</section>
 
 			</div>
