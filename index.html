@@ -807,6 +807,178 @@
 					</section>
 				</section>
 
+				<section data-transition="slide">
+					<section>
+						<h4>How is a list view written?</h4>
+						<h4>How to update list views in real-time?</h4>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add a <a href="http://ionicframework.com/docs/components/#list-headers" target="_blank">header</a> to the list:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list&gt;
+								  <mark>&lt;ion-list-header&gt;</mark>
+								    'Devices'
+								  &lt;/ion-list-header&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- The page has two lists, one of the available devices and the other of the known devices.
+							- This is the list of available devices.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add a <a href="http://ionicframework.com/docs/api/components/spinner/Spinner/" target="_blank">spinner</a> to the header:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list&gt;
+								  &lt;ion-list-header&gt;
+								    'Devices'
+								    &lt;<mark>ion-spinner</mark> <mark>item-end</mark>&gt;&lt;/ion-spinner&gt;
+								  &lt;/ion-list-header&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- The `item-end` directive will place the spinner at the end of the list item.
+							- Another possible value is `item-start`.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Change the header title based on current state:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list&gt;
+								  &lt;ion-list-header&gt;
+								    {{ (hasAllowedDevices | <mark>async</mark>) ?
+								        'Other Devices' :
+								        'Devices' }}
+								    &lt;ion-spinner item-end&gt;&lt;/ion-spinner&gt;
+								  &lt;/ion-list-header&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							The [`async` pipe](https://angular.io/guide/pipes) allows to get data from an async attribute, such as an observable.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add the list items:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list&gt;
+								    ...
+								  &lt;/ion-list-header&gt;
+								  &lt;button <mark>ion-item</mark> detail-none
+								    <mark>*ngFor="let device of notAllowedDevices
+								    | async"</mark>&gt;
+								  {{ device.name }}
+								  &lt;/button&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Use `*ngFor` to iterate over a collection.
+							- The item is a `button` to be clickable, otherwise could be an `ion-item` element.
+							- The `detail-none` directive hides an arrow that appears on iOS.
+							- The [`async` pipe](https://angular.io/guide/pipes) allows to get data from an async attribute, such as an observable.
+						</aside>
+					</section>
+
+					<section>
+						<img src="imgs/devices_lab_emptylist.png" />
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Show the other list when not empty:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list
+								  <mark>*ngIf="(hasAllowedDevices | async)"</mark>&gt;
+								  &lt;ion-list-header&gt;
+								    My Devices
+								  &lt;/ion-list-header&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Use `*ngIf` to show an item conditionally.
+							- The [`async` pipe](https://angular.io/guide/pipes) allows to get data from an async attribute, such as an observable.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Devices page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/devices_template.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Add details to the list item:</p>
+								<pre><code class="html" data-noescape data-trim>
+								...
+								&lt;ion-list
+								  ...
+								  &lt;button ion-item *ngFor="..."&gt;
+								    {{ device.name }}
+								    &lt;<mark>ion-note</mark> item-end&gt;
+								      {{ device.online ?
+								        'Online' :
+								        'Offline' }}
+								    &lt;/ion-note&gt;
+								  &lt;/button&gt;
+								...
+								</code></pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
 			</div>
 
 		</div>
