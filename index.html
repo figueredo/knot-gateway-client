@@ -1131,6 +1131,77 @@
 							- Other possible platforms: mobile, core, ios, android, ...
 						</aside>
 					</section>
+
+					<section>
+						<h3>Gateways service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/gateways_service.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Install the <a href="https://ionicframework.com/docs/native/zeroconf/" target="_blank">zeroconf</a> plugin:</p>
+								<pre><code class="bash" data-trim>
+								$ ionic cordova plugin add cordova-plugin-zeroconf
+								$ yarn add @ionic-native/zeroconf
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Gateways service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/gateways_service.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Import the plugin:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								<mark>import { Zeroconf } from '@ionic-native/zeroconf';</mark>
+								...
+								@Injectable()
+								export class GatewaysService {
+								  ...
+								  constructor(<mark>zeroconf: Zeroconf</mark> ...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Zeroconf must be imported to the app module as well to be injected here
+						</aside>
+					</section>
+
+					<section>
+						<h3>Gateways service</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/gateways_service.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Use the plugin:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								...
+								export class GatewaysService {
+								  ...
+								  start(): void {
+								    <mark>this.zeroconf
+								      .watch('_knot._tcp.', 'local.')</mark>
+								        .subscribe(result =>
+								          <mark>this.ngZone.run</mark>(() => {
+								            // update observable
+								            ...
+								      }));
+								  ...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- `ngZone.run` is required to update the view
+							- `NgZone` doesn't appear in the docs, but here: [https://github.com/ionic-team/ionic-native](https://github.com/ionic-team/ionic-native)
+						</aside>
+					</section>
 				</section>
 
 			</div>
