@@ -1100,6 +1100,37 @@
 							- The difference is the service
 						</aside>
 					</section>
+
+					<section>
+						<h3>Gateways page</h3>
+						<div class="grid-no-wrap">
+							<div class="grid-cell-no-grow-shrink">
+								<img src="imgs/app_component.png" width="246px"/>
+							</div>
+							<div class="grid-cell grid-cell-text-align-left">
+								<p>Choose initial page based on platform:</p>
+								<pre><code class="typescript" data-noescape data-trim>
+								...
+								ngOnInit(): void {
+								  this.platform.ready().then(() => {
+								    <mark>if (this.platform.is('cordova')) {</mark>
+								      this.openGatewaysPage();
+								    } else {
+								      this.openSignInPage();
+								    }
+
+								    this.statusBar.styleDefault();
+								    this.splashScreen.hide();
+								  });
+								...
+								</code></pre>
+							</div>
+						</div>
+
+						<aside class="notes" data-markdown>
+							- Other possible platforms: mobile, core, ios, android, ...
+						</aside>
+					</section>
 				</section>
 
 			</div>
